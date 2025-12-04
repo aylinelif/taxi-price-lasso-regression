@@ -38,3 +38,26 @@ This ensured the dataset was clean before modeling.
 Categorical columns were converted using **One-Hot Encoding**:
 ```python
 pd.get_dummies(df, columns=["Time_of_Day","Day_of_Week","Traffic_Conditions","Weather"], drop_first=True)
+## 🚀 Model Training & Evaluation
+
+After preprocessing and scaling, the Lasso Regression model was trained using the training dataset.
+
+**Final Test Performance:**
+
+- **R² Score:** ~0.75  
+- **RMSE:** ~18.23  
+
+This means that the model can explain approximately **75% of the variance** in taxi fare prices.
+## 📊 Feature Importance (Lasso Coefficients)
+
+Lasso automatically reduced some coefficients to zero, performing feature selection.
+
+Important predictors:
+
+- Trip Distance (km)
+- Trip Duration (minutes)
+- Per-Km Rate
+- Per-Minute Rate
+
+Most categorical features were reduced to zero, meaning they have little effect on the prediction.
+
